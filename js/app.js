@@ -70,4 +70,31 @@
 
       I will take as much time as I need but it would be nice if this project didn't take more than a week once I
       start slinging code. This preparation stuff seems to be helpful to even get anything started.
+
+    Execution:
+      Main div for whole page
+      div for body of calculator flexbox format
+        2 parts: the top with the display and the bottom with the buttons
+        this could facilitate using flexbox for the bottom and not the top.
+      div for display screen or to hold a text box
+        maybe make a 2 part screen with the top showing each button pressed as a chain
+        and the lower part the current value/result
+      grid of 20 buttons with all numbers and operations
+      option to either resize some buttons or just make certain buttons bigger than the others.
+
+      Create a watcher function that listens to the buttons being pressed
+      A holding array to store the values being pressed would be helpful to access the numbers and perform
+      the caluculations.
+      <var> <display> <calc> <var> <display> <result> <display>
+      Tricky situations:
+        handle non-number leading button presses.
+      Initial display to hold a zero might help reduce some situations.
+      Ensure the math is accurate...no JavaScript math with wonky results.
+
+      Display styling:
+        regular fonts or try to use a grid based style like actual calculators, like the bars/lines
+        make up the numbers instead of a strict text. This would be harder to do but might be worth it
+      default styling with option for dark mode or customized colors for buttons/button text
+      Animations if I am really feeling it. Maybe to start the machine a button has all the other buttons
+      flying in from differnt directions. The first time anyway...
 */

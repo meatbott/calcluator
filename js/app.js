@@ -98,3 +98,13 @@
       Animations if I am really feeling it. Maybe to start the machine a button has all the other buttons
       flying in from differnt directions. The first time anyway...
 */
+
+let calcBody = document.getElementById("calc-body");
+    displayScreen = document.getElementById("display-screen");
+    buttonField = document.getElementById("button-field");
+
+for (let i=0; i<20; i++){
+  let newButton = document.createElement("button");
+  newButton.id = `b${i}`;
+  buttonField.appendChild(newButton);
+}

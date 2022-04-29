@@ -21,7 +21,3 @@ button {
 #display-screen {
   height: 50px;
 }
-
-#b0::before {
-  content: "0";
-}

@@ -103,8 +103,30 @@ let calcBody = document.getElementById("calc-body");
     displayScreen = document.getElementById("display-screen");
     buttonField = document.getElementById("button-field");
 
-for (let i=0; i<20; i++){
+    const buttonArray = [{displayedText: "∞", buttonValue: ""},
+                         {displayedText: "☺", buttonValue: ""},
+                         {displayedText: "C", buttonValue: ""},
+                         {displayedText: "←", buttonValue: ""},
+                         {displayedText: "7", buttonValue: 7},
+                         {displayedText: "8", buttonValue: 8},
+                         {displayedText: "9", buttonValue: 9},
+                         {displayedText: "÷", buttonValue: ""},
+                         {displayedText: "4", buttonValue: 4},
+                         {displayedText: "5", buttonValue: 5},
+                         {displayedText: "6", buttonValue: 6},
+                         {displayedText: "*", buttonValue: ""},
+                         {displayedText: "1", buttonValue: 1},
+                         {displayedText: "2", buttonValue: 2},
+                         {displayedText: "3", buttonValue: 3},
+                         {displayedText: "-", buttonValue: ""},
+                         {displayedText: "0", buttonValue: 0},
+                         {displayedText: ".", buttonValue: ""},
+                         {displayedText: "=", buttonValue: ""},
+                         {displayedText: "+", buttonValue: ""},];
+
+for (let button of buttonArray){
   let newButton = document.createElement("button");
-  newButton.id = `b${i}`;
+  newButton.id = "b" + button.displayedText;
+  newButton.innerText = button.displayedText;
   buttonField.appendChild(newButton);
 }

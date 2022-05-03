@@ -100,8 +100,10 @@
 */
 
 let calcBody = document.getElementById("calc-body");
+    topScreen = document.getElementById("top-screen");
     displayScreen = document.getElementById("display-screen");
     buttonField = document.getElementById("button-field");
+    tempCalc = [];
 
     const buttonArray = [{displayedText: "∞", buttonValue: ""},
                          {displayedText: "☺", buttonValue: ""},
@@ -110,19 +112,19 @@ let calcBody = document.getElementById("calc-body");
                          {displayedText: "7", buttonValue: 7},
                          {displayedText: "8", buttonValue: 8},
                          {displayedText: "9", buttonValue: 9},
-                         {displayedText: "÷", buttonValue: ""},
+                         {displayedText: "÷", buttonValue: "/"},
                          {displayedText: "4", buttonValue: 4},
                          {displayedText: "5", buttonValue: 5},
                          {displayedText: "6", buttonValue: 6},
-                         {displayedText: "*", buttonValue: ""},
+                         {displayedText: "*", buttonValue: "*"},
                          {displayedText: "1", buttonValue: 1},
                          {displayedText: "2", buttonValue: 2},
                          {displayedText: "3", buttonValue: 3},
-                         {displayedText: "-", buttonValue: ""},
+                         {displayedText: "-", buttonValue: "-"},
                          {displayedText: "0", buttonValue: 0},
-                         {displayedText: ".", buttonValue: ""},
-                         {displayedText: "=", buttonValue: ""},
-                         {displayedText: "+", buttonValue: ""},];
+                         {displayedText: ".", buttonValue: "."},
+                         {displayedText: "=", buttonValue: "="},
+                         {displayedText: "+", buttonValue: "+"},];
 
 for (let button of buttonArray){
   let newButton = document.createElement("button");
@@ -130,3 +132,14 @@ for (let button of buttonArray){
   newButton.innerText = button.displayedText;
   buttonField.appendChild(newButton);
 }
+
+let writeTopScreen = (keyPressed)=> {
+  let inputText = document.createTextNode(keyPressed)
+  topScreen.appendChild(inputText)};
+
+buttonField.addEventListener("click", (e)=>{
+  let keyPressed = e.target.innerText;
+  writeTopScreen(keyPressed);
+  tempCalc.push(keyPressed);
+  console.log(tempCalc);
+});

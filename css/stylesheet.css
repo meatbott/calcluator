@@ -21,3 +21,12 @@ button {
 #display-screen {
   height: 50px;
 }
+
+#top-screen {
+  height: 30px;
+}
+
+.screen {
+  width: 100%;
+  text-align: right;
+}

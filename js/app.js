@@ -130,16 +130,20 @@ for (let button of buttonArray){
   let newButton = document.createElement("button");
   newButton.id = "b" + button.displayedText;
   newButton.innerText = button.displayedText;
+  newButton.dataset.digit = button.buttonValue;
   buttonField.appendChild(newButton);
-}
+};
 
 let writeTopScreen = (keyPressed)=> {
-  let inputText = document.createTextNode(keyPressed)
-  topScreen.appendChild(inputText)};
+  let inputText = document.createTextNode(keyPressed);
+  topScreen.appendChild(inputText)
+};
 
-buttonField.addEventListener("click", (e)=>{
+let enableInteraction = (e)=>{
   let keyPressed = e.target.innerText;
   writeTopScreen(keyPressed);
   tempCalc.push(keyPressed);
   console.log(tempCalc);
-});
+};
+
+buttonField.addEventListener("click", enableInteraction);

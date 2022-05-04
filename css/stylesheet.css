@@ -29,4 +29,6 @@ button {
 .screen {
   width: 100%;
   text-align: right;
+  font-family: monospace;
+  margin: 2px;
 }

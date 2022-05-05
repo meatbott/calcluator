@@ -129,6 +129,7 @@ let calcBody = document.getElementById("calc-body");
 for (let button of buttonArray){
   let newButton = document.createElement("button");
   newButton.id = "b" + button.displayedText;
+  newButton.classList.add("pressableButton")
   newButton.innerText = button.displayedText;
   newButton.dataset.digit = button.buttonValue;
   buttonField.appendChild(newButton);
@@ -145,5 +146,15 @@ let enableInteraction = (e)=>{
   tempCalc.push(keyPressed);
   console.log(tempCalc);
 };
+
+/*Note: this function is targeting just the buttons that have a number so that
+they will be placing their value on the lower screen. This took too long to figure
+out that I was omitting "document" from the getElementById method...*/
+for (let button of buttonArray){
+  if (typeof button.buttonValue === 'number'){
+    let actualButton = document.getElementById(`b${button.displayedText}`)
+    console.log(actualButton)
+  }
+}
 
 buttonField.addEventListener("click", enableInteraction);

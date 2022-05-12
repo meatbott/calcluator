@@ -105,6 +105,7 @@ let calcBody = document.getElementById("calc-body");
     buttonField = document.getElementById("button-field");
     tempCalc = [];
 
+
     const buttonArray = [{displayedText: "∞", buttonValue: ""},
                          {displayedText: "☺", buttonValue: ""},
                          {displayedText: "C", buttonValue: ""},
@@ -127,6 +128,7 @@ let calcBody = document.getElementById("calc-body");
                          {displayedText: "+", buttonValue: "+"},];
 
 for (let button of buttonArray){
+
   let newButton = document.createElement("button");
   newButton.id = "b" + button.displayedText;
   newButton.classList.add("pressableButton")
@@ -144,16 +146,20 @@ let enableInteraction = (e)=>{
   let keyPressed = e.target.innerText;
   writeTopScreen(keyPressed);
   tempCalc.push(keyPressed);
-  console.log(tempCalc);
+};
+
+let writeDisplayScreen = (e)=> {
+  let buttonPressed = e.explicitOriginalTarget.dataset.digit;
+      inputText = document.createTextNode(buttonPressed);
+  displayScreen.appendChild(inputText);
 };
 
 /*Note: this function is targeting just the buttons that have a number so that
-they will be placing their value on the lower screen. This took too long to figure
-out that I was omitting "document" from the getElementById method...*/
+they will be placing their value on the lower screen.*/
 for (let button of buttonArray){
-  if (typeof button.buttonValue === 'number'){
-    let actualButton = document.getElementById(`b${button.displayedText}`)
-    console.log(actualButton)
+  if (typeof button.buttonValue === 'number'|| button.buttonValue =="."){
+    let actualButton = document.getElementById(`b${button.displayedText}`);
+    actualButton.addEventListener("click", writeDisplayScreen);
   }
 }
 

@@ -148,10 +148,22 @@ let enableInteraction = (e)=>{
   tempCalc.push(keyPressed);
 };
 
+/*I should be capturing what is being displayed on the display screen as a variable and do
+  modifications there. And I might but for now, I am just trying to make it proof of concept.
+  and working. So much little stuff to deal with...
+
+  Idea: have the calculation buttons restore the event listener like if you press "+" or "=" then
+  the decimal button can work again. Small gains today but gains nonetheless*/
 let writeDisplayScreen = (e)=> {
+  if(displayScreen.textContent.includes(".")){
+    let disabledButton = document.getElementById("b.")
+    disabledButton.removeEventListener("click", writeDisplayScreen);
+    console.log(disabledButton)
+  }
   let buttonPressed = e.explicitOriginalTarget.dataset.digit;
       inputText = document.createTextNode(buttonPressed);
   displayScreen.appendChild(inputText);
+  console.log(e)
 };
 
 /*Note: this function is targeting just the buttons that have a number so that

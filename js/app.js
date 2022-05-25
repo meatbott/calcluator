@@ -174,12 +174,31 @@ let writeDisplayScreen = (e)=> {
  };
 };
 
+/*backspace functionality : topScreen.lastchild.remove();
+  Yah well it doesnt work always and now it is removing the entire topscreen element.
+  this is very frustrating and does not make sense. If I type into the console the remove
+  element command it will work. but If I use the function and addEventListener it returns an
+  error "topScreen.lastchild is undefined" even though I can see it and if I type the Literal
+  function in the console it will work. I do not understand the difference between running it in
+  the console and in the code. BLARUHGHGGH
+*/
 
+let backSpace = document.getElementById("b←");
+
+    backSpaceDelete = ()=>{
+    if(topScreen.textContent.length > 1){
+      //let deleteTarget = topScreen.lastchild;
+      topScreen.lastchild.remove();
+      //displayScreen.lastchild.remove();
+      }
+    }
+
+backSpace.addEventListener("click", backSpaceDelete)
 
 /*Note: this function is targeting just the buttons that have a number so that
 they will be placing their value on the lower screen.*/
 for (let button of buttonArray){
-  if (typeof button.buttonValue === 'number'|| button.buttonValue =="."){
+  if (typeof button.buttonValue === 'number'|| button.buttonValue == "."){
     let actualButton = document.getElementById(`b${button.displayedText}`);
     actualButton.addEventListener("click", writeDisplayScreen);
   }
